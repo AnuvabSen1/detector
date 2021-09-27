@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html >
+<head>
+<style>
+hr
+{
+   margin-top: 0em;
+   margin-bottom: 0em;
+   border-width: 0px;
+   padding: 3px;
+}
+</style>
+  <meta charset="UTF-8">
+  <title>Fake News📰 Detection System</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body style=background-image: url('zslp-covid-banner.png')>
+     <h1 align="center">Covid 19 Fake News Detection Web Application [ML] </h1>
+
+ <div class="login">
+	 <center><h2 align="centre">Enter Your Argument</h2></center>
+	 <br>
+    <form action="{{ url_for('predict')}}" method="POST" align="center">
+    	<textarea  name="message" rows="3" cols="2" required="required" style="font-size: 18pt"></textarea>
+		<br> </br>
+        <button type="submit" class="btn btn-primary btn-block btn-large"> OUR PREDICTION</button>
+
+        	<div class="results">
+
+	{% if prediction == ['FAKE']%}
+	<h2 style="color:red;">Looking Spam⚠  or Fake News📰 </h2>
+	{% elif prediction == ['REAL']%}
+				<h2 style="color:green;"><b>Real News📰</b></h2>
+	{% endif %}
+
+	</div>
+<hr>
+    </form>
+	 <br>
+	 <br>
+	 <footer class="footer">
+      <span class="footer-title">Amrita Kesh</span>
+      <p style="text-align: center;color: #f2edd7;"><a href="mailto:amritaraneekesh@gmail.com" style="color: #F2EDD7;">amritaraneekesh@gmail.com</a></p>
+       </footer>
+</div>
